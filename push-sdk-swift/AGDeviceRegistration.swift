@@ -28,13 +28,13 @@ class AGDeviceRegistration: NSObject, NSURLSessionTaskDelegate {
         static let AGNetworkingOperationFailingURLResponseErrorKey = "AGNetworkingOperationFailingURLResponseErrorKey"
     }
     
-    var serverURL: NSURL?
-    var session: NSURLSession?
+    let serverURL: NSURL
+    let session: NSURLSession!
     
     init(serverURL: NSURL) {
-        super.init()
-
         self.serverURL = serverURL;
+
+        super.init()
 
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         self.session = NSURLSession(configuration: sessionConfig, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
@@ -52,12 +52,12 @@ class AGDeviceRegistration: NSObject, NSURLSessionTaskDelegate {
             assert(clientInfoObject.variantSecret, "'variantSecret' should be set");
             
             // set up our request
-            let request = NSMutableURLRequest(URL: serverURL!.URLByAppendingPathComponent("/rest/registry/device"))
+            let request = NSMutableURLRequest(URL: serverURL.URLByAppendingPathComponent("/rest/registry/device"))
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.HTTPMethod = "POST"
             
             // apply HTTP Basic
-            let basicAuthCredentials = "\(clientInfoObject.variantID):\(clientInfoObject.variantSecret)" .dataUsingEncoding(          NSUTF8StringEncoding)
+            let basicAuthCredentials: NSData! = "\(clientInfoObject.variantID):\(clientInfoObject.variantSecret)".dataUsingEncoding(          NSUTF8StringEncoding)
             let base64Encoded = basicAuthCredentials.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.fromRaw(0)!)
             
             request.setValue("Basic \(base64Encoded)", forHTTPHeaderField: "Authorization")
@@ -67,7 +67,7 @@ class AGDeviceRegistration: NSObject, NSURLSessionTaskDelegate {
             
             request.HTTPBody = postData
             
-            let task = session!.dataTaskWithRequest(request,
+            let task = session.dataTaskWithRequest(request,
                 completionHandler: {(data, response, error) in
                     if error {
                         failure(error)

@@ -13,6 +13,9 @@
 		6F71353719646266009B26D8 /* push-sdk-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F71353619646266009B26D8 /* push-sdk-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F71353D19646266009B26D8 /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F71353119646266009B26D8 /* AeroGearPush.framework */; };
 		6F71354419646266009B26D8 /* AGDeviceRegistrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F71354319646266009B26D8 /* AGDeviceRegistrationTests.swift */; };
+		6F7A7DF01977CCA3008FF502 /* StubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A7DEF1977CCA3008FF502 /* StubURLProtocol.swift */; };
+		6F7A7DF31977F2A0008FF502 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A7DF21977F2A0008FF502 /* StubManager.swift */; };
+		6FDB7E011979220A005A6C51 /* StubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB7E001979220A005A6C51 /* StubResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		6F71353C19646266009B26D8 /* AeroGearPushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AeroGearPushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F71354219646266009B26D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F71354319646266009B26D8 /* AGDeviceRegistrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDeviceRegistrationTests.swift; sourceTree = "<group>"; };
+		6F7A7DEF1977CCA3008FF502 /* StubURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StubURLProtocol.swift; path = AGURLSessionStub/StubURLProtocol.swift; sourceTree = "<group>"; };
+		6F7A7DF21977F2A0008FF502 /* StubManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StubManager.swift; path = AGURLSessionStub/StubManager.swift; sourceTree = "<group>"; };
+		6FDB7E001979220A005A6C51 /* StubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StubResponse.swift; path = AGURLSessionStub/StubResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 		6F71354019646266009B26D8 /* push-sdk-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				6F7A7DF11977CCBB008FF502 /* AGURLSessionStub */,
 				6F71354319646266009B26D8 /* AGDeviceRegistrationTests.swift */,
 				6F71354119646266009B26D8 /* Supporting Files */,
 			);
@@ -132,6 +139,16 @@
 				6F71354219646266009B26D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F7A7DF11977CCBB008FF502 /* AGURLSessionStub */ = {
+			isa = PBXGroup;
+			children = (
+				6F7A7DEF1977CCA3008FF502 /* StubURLProtocol.swift */,
+				6F7A7DF21977F2A0008FF502 /* StubManager.swift */,
+				6FDB7E001979220A005A6C51 /* StubResponse.swift */,
+			);
+			name = AGURLSessionStub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDB7E011979220A005A6C51 /* StubResponse.swift in Sources */,
+				6F7A7DF31977F2A0008FF502 /* StubManager.swift in Sources */,
 				6F4641771965660300D2B1C9 /* AGClientDeviceInformationImpl.swift in Sources */,
 				6F46417219654E4A00D2B1C9 /* AGDeviceRegistration.swift in Sources */,
 				6F464174196564A500D2B1C9 /* AGClientDeviceInformation.swift in Sources */,
+				6F7A7DF01977CCA3008FF502 /* StubURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
